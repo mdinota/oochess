@@ -20,7 +20,7 @@
     "nyc": "^15.1.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --ui tdd test/ --recursive"
   },
   "author": "mdinota",
   "license": "ISC"
