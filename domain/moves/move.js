@@ -18,6 +18,10 @@ export default class Move {
             throw new Error('Move is not permitted');
         }
 
-        this._board.movePiece(this._piece, this._targetSquare);
+        this.applyWhenLegal();
+    }
+
+    applyWhenLegal() {
+        throw 'Subclass responsibility';
     }
 }

@@ -1,6 +1,7 @@
-import Move from "./move";
 import Piece from "./piece";
 import PieceColour from "./piece_colour";
+import Capture from './moves/capture';
+import MoveToUnoccupiedSquare from './moves/move_to_unccupied_sqaure';
 
 export default class Player {
     static newWhitePlayerFor(board) {
@@ -29,7 +30,13 @@ export default class Player {
     }
 
     move(piece, targetSquare) {
-        const move = Move.of(piece, targetSquare, this.board());
+        let move;
+
+        if(this.board().squareIsOccupied(targetSquare)) {
+            move = Capture.of(piece, targetSquare, this.board());
+        } else {
+            move = MoveToUnoccupiedSquare.of(piece, targetSquare, this.board());
+        }
 
         move.apply();
     }

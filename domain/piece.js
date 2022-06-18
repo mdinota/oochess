@@ -39,6 +39,10 @@ export default class Piece {
         return this._colour;
     }
 
+    hasSameColourAs(anotherPiece) {
+        return this.colour() === anotherPiece.colour();
+    }
+
     canBeMoved(targetSquareName, board) {
         const currentSquare = board.findPieceSquare(this);
         const targetSquare = board.squareNamed(targetSquareName);
