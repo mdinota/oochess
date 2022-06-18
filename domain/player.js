@@ -57,6 +57,10 @@ export default class Player {
         return this.placePieceInBoard(Piece.newQueen(this.colour()), targetSquare);
     }
 
+    placeKnight(targetSquare) {
+        return this.placePieceInBoard(Piece.newKnight(this.colour()), targetSquare);
+    }
+
     placePieceInBoard(piece, targetSquare) {
         this.board().placePiece(piece, targetSquare);
 
