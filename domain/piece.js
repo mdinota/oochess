@@ -5,6 +5,13 @@ import DiagonalMovementRule from "./movement_rules/diagonal_movement_rule";
 import KnightMovementRule from './movement_rules/knight_movement_rule';
 
 export default class Piece {
+    static newKing(colour) {
+        let verticalMovementRule = VerticalMovementRule.by(1);
+        let horizontalMovementRule = HorizontalMovementRule.by(1);
+        let diagonalMovementRule = DiagonalMovementRule.by(1);
+        return new this('king', colour, verticalMovementRule.or(horizontalMovementRule).or(diagonalMovementRule));
+    }
+
     static newPawn(colour) {
         return new this('pawn', colour, ForwardMovementRule.by(1));
     }

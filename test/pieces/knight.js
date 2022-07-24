@@ -56,6 +56,15 @@ suite('Knight', () => {
 		assertPieceMoved(knight, 'c2', 'a1', board);
 	});
 
+	test('A knight can move even if it is blocked by another piece', () => {
+		const knight = player.placeKnight('a1');
+		player.placePawn('a2');
+
+		player.move(knight, 'b3');
+
+		assertPieceMoved(knight, 'a1', 'b3', board);
+	});
+
 	test('A knight cannot move three squares forward', () => {
 		const knight = player.placeKnight('a1');
 

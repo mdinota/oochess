@@ -1,11 +1,11 @@
-import MovementRule from "./movement_rule";
+import LinearMovementRule from './linear_movement_rule';
 
-export default class HorizontalMovementRule extends MovementRule {
-    static new() {
-        return new this();
+export default class HorizontalMovementRule extends LinearMovementRule {
+    _directionIsValid(from, to) {
+        return to.row() === from.row();
     }
 
-    canMove(piece, from, to, board) {
-        return to.row() === from.row() && this.noSquaresOccupied(from, to, board);
+    _distance(from, to) {
+        return from.absoluteColumnDistanceTo(to);
     }
 }
