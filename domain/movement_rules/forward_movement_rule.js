@@ -1,18 +1,9 @@
-import MovementRule from "./movement_rule";
+import VerticalMovementRule from './vertical_movement_rule';
 
-export default class ForwardMovementRule extends MovementRule {
-    static by(squaresAtATime) {
-        return new this(squaresAtATime);
-    }
-
-    constructor(squaresAtATime) {
-        super();
-        this._squaresAtATime = squaresAtATime;
-    }
-
-    canMove(piece, from, to, board) {
+export default class ForwardMovementRule extends VerticalMovementRule {
+    _directionIsValid(from, to, piece) {
         const attackDirection = piece.colour().attackDirection();
 
-        return to.column() === from.column() && attackDirection.isAhead(to, from) && from.absoluteRowDistanceTo(to) === this._squaresAtATime;
+        return super._directionIsValid(from, to) && attackDirection.isAhead(to, from);
     }
 }

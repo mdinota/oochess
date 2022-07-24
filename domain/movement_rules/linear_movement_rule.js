@@ -15,7 +15,7 @@ export default class LinearMovementRule extends MovementRule {
 	}
 
 	canMove(piece, from, to, board) {
-		return this._directionIsValid(from, to) && this.noSquaresOccupied(from, to, board) && this._distanceIsValid(from, to);
+		return this._directionIsValid(from, to, piece) && this.noSquaresOccupied(from, to, board) && this._distanceIsValid(from, to);
 	}
 
 	_distanceIsValid(from, to) {
@@ -26,7 +26,7 @@ export default class LinearMovementRule extends MovementRule {
 		throw 'Subclass responsibility';
 	}
 
-	_directionIsValid(from, to) {
+	_directionIsValid(from, to, piece) {
 		throw 'Subclass responsibility';
 	}
 }
