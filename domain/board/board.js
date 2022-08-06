@@ -58,7 +58,7 @@ export default class Board {
     }
 
     pieceInSquare(squareName) {
-        return this.squareNamed(squareName).ocuppiedBy();
+        return this.squareNamed(squareName).occupiedBy();
     }
 
     movePiece(piece, toSquareName) {
@@ -72,7 +72,7 @@ export default class Board {
     }
 
     findPieceSquare(piece, ifNotFoundDo = () => { throw new Error('piece not found') }) {
-        const square = this.occupiedSquares().find((square) => square.ocuppiedBy() === piece);
+        const square = this.occupiedSquares().find((square) => square.occupiedBy() === piece);
 
         if(square !== undefined) {
             return square;

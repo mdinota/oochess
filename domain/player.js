@@ -29,6 +29,10 @@ export default class Player {
         return this._colour;
     }
 
+    hasColour(colour) {
+        return this.colour() === colour;
+    }
+
     move(piece, targetSquare) {
         let move;
 

@@ -16,7 +16,7 @@ export default class OccupiedSquare extends Square {
         throw new Error('square is occupied');
     }
 
-    ocuppiedBy() {
+    occupiedBy() {
         return this._piece;
     }
 
